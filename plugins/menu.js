@@ -39,8 +39,6 @@ Hai, %ucapan %name! 👋
   
 *Waktu:* 
 %wib WIB
-%wita WITA
-%wit WIT
 *Hari:* %week
 *Tanggal:* %date
 *Uptime:* %uptime (%muptime)
@@ -52,10 +50,6 @@ Hai, %ucapan %name! 👋
   header: ' *%category*',
   body: ' • %cmd %islimit %isPremium',
   footer: '\n',
-  after: `*Made by ♡*
-*%npmname* | %version
-${'```%npmdesc```'}
-`,
 }
 let handler = async (m, { conn, usedPrefix: _p }) => {
   try {
@@ -129,8 +123,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '[Limit]' : '')
-                .replace(/%isPremium/g, menu.premium ? '[Premium]' : '')
+                .replace(/%islimit/g, menu.limit ? '' : '')
+                .replace(/%isPremium/g, menu.premium ? '' : '')
                 .trim()
             }).join('\n')
           }),
@@ -157,7 +151,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.sendHydrated(m.chat, text.trim(), 'Ⓟ premium | Ⓛ limit', null, 'https://aiinne.github.io/', 'Website', '', '', [
+    conn.sendHydrated(m.chat, text.trim(), '', null, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'Website', '', '', [
       ['Donate', '/donasi'],
       ['Sewa Bot', '/sewa'],
       ['Owner', '/owner']
