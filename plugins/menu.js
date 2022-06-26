@@ -49,7 +49,7 @@ Hai, %ucapan %name! 👋
 %readmore`.trimStart(),
   header: ' *%category*',
   body: ' • %cmd %islimit %isPremium',
-  footer: '\n',
+  footer: '\n'
 }
 let handler = async (m, { conn, usedPrefix: _p }) => {
   try {
