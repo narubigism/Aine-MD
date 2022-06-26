@@ -50,6 +50,9 @@ Hai, %ucapan %name! 👋
   header: ' *%category*',
   body: ' • %cmd %islimit %isPremium',
   footer: '\n'
+  after: `_ Ariana Bot. Compiled by:_
+  Gibz
+  ${'```%npmdesc```'}`,
 }
 let handler = async (m, { conn, usedPrefix: _p }) => {
   try {
